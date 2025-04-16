@@ -1,0 +1,118 @@
+/* BODY */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #af9476;
+}
+
+/* HEADER */
+
+.header_container {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: #532d02;
+}
+
+.header_container h1 {
+  position: absolute;
+  left: 10%;
+  font-size: 3rem;
+}
+.header_container .category_book {
+  position: absolute;
+  right: 10%;
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  gap: 10px;
+}
+
+header hr {
+  width: 60vw;
+  height: 2px;
+  background-color: #000;
+  border: none;
+  margin: auto;
+}
+
+.category_book select {
+  background-color: #fff0;
+  font-size: 1.5rem;
+  border: 2px #532d02 solid;
+  color: #532d02;
+  border-radius: 10px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.category_book option {
+  background-color: #af9476;
+}
+
+.category_book a {
+  cursor: pointer;
+}
+
+.category_book a:hover {
+  color: bisque;
+}
+
+/* MAIN */
+.books_container {
+  width: 100vw;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+}
+.book_review {
+  display: inline-block;
+  width: 60vw;
+}
+.book_review img {
+  height: 200px;
+  width: 150px;
+  padding-right: 20px;
+  background-size: cover;
+  background-position: center;
+  float: left;
+}
+
+.review_container * {
+  padding-bottom: 10px;
+}
+
+.review_container h2 {
+  font-size: 2rem;
+}
+
+.book_review a {
+  cursor: pointer;
+}
+
+.review_container a {
+  color: #532d02;
+}
+
+.review_container a:hover {
+  color: bisque;
+}
+
+.review_container > p:nth-of-type(1) {
+  font-size: 1.2rem;
+  color: #613e16;
+}
+
+.review_container > p:nth-of-type(2) {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
