@@ -7,6 +7,29 @@
 
 body {
   background-color: #af9476;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit; /* Giữ nguyên màu như trước khi truy cập */
+}
+
+a:hover {
+  color: bisque;
+}
+header {
+  margin-bottom: 50px;
+}
+
+main {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* HEADER */
@@ -61,14 +84,9 @@ header hr {
   cursor: pointer;
 }
 
-.category_book a:hover {
-  color: bisque;
-}
-
 /* MAIN */
 .books_container {
-  width: 100vw;
-  margin: 50px 0;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,11 +94,11 @@ header hr {
 }
 .book_review {
   display: inline-block;
-  width: 60vw;
+  width: 80%;
 }
 .book_review img {
-  height: 200px;
-  width: 150px;
+  height: 180px;
+  width: 120px;
   padding-right: 20px;
   background-size: cover;
   background-position: center;
@@ -93,14 +111,14 @@ header hr {
 
 .review_container h2 {
   font-size: 2rem;
+  color: #532d02;
+}
+.review_container a {
+  text-decoration-line: underline;
 }
 
 .book_review a {
   cursor: pointer;
-}
-
-.review_container a {
-  color: #532d02;
 }
 
 .review_container a:hover {
@@ -113,6 +131,134 @@ header hr {
 }
 
 .review_container > p:nth-of-type(2) {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 1.5;
+}
+
+/* MODIFY */
+.modify_container {
+  width: 60%;
+  background-color: bisque;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.modify_container h1 {
+  padding-top: 20px;
+}
+
+.modify_container form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+form .title_rating {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+}
+.title_rating input:nth-child(1) {
+  flex: 1;
+}
+.title_rating input:nth-child(2) {
+  flex-basis: 75px;
+  text-align: center;
+}
+.modify_container input,
+.modify_container textarea,
+.modify_container button {
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 5px;
+}
+.modify_container input,
+.modify_container textarea {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.modify_container button {
+  width: 50%;
+  background-color: #af9476;
+  cursor: pointer;
+}
+
+.modify_container button:hover {
+  width: 50%;
+  background-color: #77644f;
+}
+
+/* DETAILS */
+.details_container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.intro {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.book {
+  display: inline-block;
+  width: 100%;
+}
+
+.book img {
+  height: 180px;
+  width: 120px;
+  background-size: cover;
+  background-position: center;
+  float: left;
+  padding-right: 20px;
+}
+
+.book * {
+  padding-bottom: 10px;
+}
+
+.book h2 {
+  font-size: 2rem;
+  color: #532d02;
+}
+
+.book p {
+  font-size: 1.2rem;
+  color: #613e16;
+}
+
+.intro_book {
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.my_notes {
+  width: 80%;
+}
+
+.my_notes h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #532d02;
+}
+
+.my_notes p {
+  font-size: 1.2rem;
 }

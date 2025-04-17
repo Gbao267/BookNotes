@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Notes By Gbao</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--HEADER START-->
+    <header>
+      <div class="header_container">
+        <h1><a href="index.html">My Book Notes</a></h1>
+      </div>
+      <hr />
+    </header>
+    <!--HEADER END-->
+    <!--MAIN START-->
+    <main>
+      <div class="modify_container">
+        <h1>New Book</h1>
+        <form id="newPostForm" method="post">
+          <div class="title_rating">
+            <input type="text" name="title" placeholder="Title" autocomplete="off" autofocus required />
+            <input type="number" name="rating" placeholder="Rating" autocomplete="off" required />
+          </div>
+          <textarea name="intro" placeholder="Intro" autocomplete="off" required rows="10" spellcheck="false"></textarea>
+          <button class="full-width" type="submit">Create Book</button>
+        </form>
+      </div>
+    </main>
+    <!--MAIN END-->
+  </body>
+</html>
