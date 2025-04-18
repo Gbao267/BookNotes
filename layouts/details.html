@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Notes By Gbao</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--HEADER START-->
+    <header>
+      <div class="header_container">
+        <h1><a href="index.html">My Book Notes</a></h1>
+      </div>
+      <hr />
+    </header>
+    <!--HEADER END-->
+    <!--MAIN START-->
+    <main>
+      <div class="details_container">
+        <div class="intro">
+          <div class="book">
+            <img src="https://picsum.photos/200/300" alt="" />
+            <h2>You Can Negotiate Anything - by Herb Cohen</h2>
+            <p>Date read: 2023-08-02.</p>
+            <p>How strongly I recommend it: 10/10</p>
+          </div>
+          <div class="intro_book">
+            Everything is negotiable. Challenge authority. You have the power in any situation. This is how to realize it and use it. A must-read
+            classic from 1980 from a master negotiator. My notes here aren’t enough because the little book is filled with so many memorable stories —
+            examples of great day-to-day moments of negotiation that will stick in your head for when you need them. (I especially loved the one about
+            the power of the prisoner in solitary confinement.) So go buy and read the book. I’m giving it a 10/10 rating even though the second half
+            of the book loses steam, because the first half is so crucial.
+          </div>
+        </div>
+        <div class="my_notes">
+          <div class="add_note">
+            <h3>My Notes</h3>
+            <button id="cancelButton" hidden="true" onclick="cancel()"><i class="fa-solid fa-xmark"></i></i></button>
+            <button id="addButton" onclick="add()"><i class="fa-solid fa-plus"></i></button>
+            <button><i class="fa-solid fa-angles-down"></i></button>
+          </div>
+          <form class="add" action="/add" method="post">
+            <input id="formAddInput" type="text" name="newNote" placeholder="New Note" autocomplete="off" autofocus="true" hidden="true" />
+            <button id="formAddButton" type="submit" name="list" hidden="true"><i class="fa-solid fa-plus"></i></button>
+          </form>
+          <p>
+            Power is the capacity or ability to get things done.<br />
+            It determines whether you can or can’t influence your environment.<br />
+            It gives you a sense of mastery over your life.<br />
+            <br />
+          </p>
+        </div>
+      </div>
+    </main>
+    <!--MAIN END-->
+  </body>
+  <script src="https://kit.fontawesome.com/f5c625c58b.js" crossorigin="anonymous"></script>
+  <script>
+    function add() {
+      document.getElementById("formAddInput").removeAttribute("hidden");
+      document.getElementById("formAddButton").removeAttribute("hidden");
+      document.getElementById("cancelButton").removeAttribute("hidden");
+    }
+    function cancel() {
+      document.getElementById("formAddInput").value='';
+      document.getElementById("formAddInput").setAttribute("hidden", true);
+      document.getElementById("formAddButton").setAttribute("hidden", true);
+      document.getElementById("cancelButton").setAttribute("hidden", true);
+    }
+  </script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header.ejs'); -%>
+  <body>
+    <!--HEADER START-->
+    <header>
+      <div class="header_container">
+        <h1><a href="/">My Book Notes</a></h1>
+      </div>
+      <hr />
+    </header>
+    <!--HEADER END-->
+    <!--MAIN START-->
+    <main>
+      <div class="modify_container">
+        <h1><%= heading %></h1>
+        <% if(locals.book) {%>
+        <form id="editForm" action="/update" method="post">
+          <input type="hidden" name="id" value="<%= book.id %>" />
+          <div class="title_rating">
+            <input type="text" name="name" value="<%= book.name %>" autocomplete="off" autofocus required />
+            <input type="number" name="rating" value="<%= book.rating %>" autocomplete="off" min="0" max="10" required />
+          </div>
+          <textarea name="intro" autocomplete="off" required rows="10" spellcheck="false"><%= book.introduction %></textarea>
+          <button class="full-width" type="submit">Update</button>
+        </form>
+        <% } else { %>
+        <form id="newForm" action="/new-book" method="post">
+          <div class="title_rating">
+            <input type="text" name="name" placeholder="Name" autocomplete="off" autofocus required />
+          </div>
+          <textarea name="intro" placeholder="Intro" autocomplete="off" required rows="10" spellcheck="false"></textarea>
+          <button class="full-width" type="submit">Create</button>
+        </form>
+        <% } %>
+      </div>
+    </main>
+    <!--MAIN END-->
+    <%- include('partials/footer.ejs'); -%>
+  </body>
+</html>

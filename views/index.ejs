@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header.ejs'); -%>
+  <body>
+    <!--HEADER START-->
+    <header>
+      <div class="header_container">
+        <h1><a href="/">My Book Notes</a></h1>
+        <div class="category_book">
+          <form action="/option" method="POST">
+            <select name="options" onchange="this.form.submit()">
+              <option value="rating">Rating</option>
+              <option value="recently">Recently</option>
+              <option value="name">Name</option>
+            </select>
+          </form>
+          <a href="/add"><i class="fa-solid fa-plus"></i></a>
+        </div>
+      </div>
+      <hr />
+    </header>
+    <!--HEADER END-->
+    <!--MAIN START-->
+    <main>
+      <div class="books_container">
+        <!--BOOK REVIEW START-->
+        <% for(let book of books) {%>
+        <div class="book_review">
+          <!--IMG-->
+          <a href="details.html"><img src="https://covers.openlibrary.org/b/id/<%= book.cover_i %>-L.jpg" alt="" /></a>
+
+          <!--REVIEW CONTAINER-->
+          <div class="review_container">
+            <!--TITLE-->
+            <div class="title">
+              <h2><a href="details.html"><%= book.name %></a></h2>
+              <form action="/edit" method="POST">
+                <input type="hidden" name="id" value="<%= book.id %>" />
+                <button type="submit"><i class="fa-solid fa-pen"></i></button>
+              </form>
+            </div>
+            <!--DATE AND RATING-->
+            <p>Date read: <%= new Date(book.date_read).toLocaleDateString('vi-VN') %>. How strongly I recommend it: <%= book.rating %>/10</p>
+            <!--OVERALL REVIEW-->
+            <p><%= book.introduction %></p>
+          </div>
+        </div>
+        <% } %>
+        <!--BOOK REVIEW END-->
+      </div>
+    </main>
+    <!--MAIN END-->
+    <%- include('partials/footer.ejs'); -%>
+  </body>
+</html>
