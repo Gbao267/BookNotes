@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/header.ejs'); -%>
+  <body>
+    <!--HEADER START-->
+    <header>
+      <div class="header_container">
+        <h1><a href="/">My Book Notes</a></h1>
+        <div class="category_book">
+          <form action="/option" method="POST">
+            <select name="options" onchange="this.form.submit()">
+              <option value="rating">Rating</option>
+              <option value="recently">Recently</option>
+              <option value="name">Name</option>
+            </select>
+          </form>
+          <a href="/add"><i class="fa-solid fa-plus"></i></a>
+        </div>
+      </div>
+      <hr />
+    </header>
+    <!--HEADER END-->
+    <!--MAIN START-->
+    <main>
+      <div class="details_container">
+        <div class="intro">
+          <div class="book">
+            <img src="https://covers.openlibrary.org/b/id/<%= book.cover_i %>-L.jpg" alt="" />
+            <h2><%= book.name %></h2>
+            <p>Date read: <%= new Date(book.date_read).toLocaleDateString('vi-VN') %>.</p>
+            <p>How strongly I recommend it: <%= book.rating %></p>
+          </div>
+          <div class="intro_book"><%= book.introduction %></div>
+        </div>
+        <div class="my_notes">
+          <div class="add_note">
+            <h3>My Notes</h3>
+            <button id="cancelButton" hidden="true" onclick="cancel()"><i class="fa-solid fa-xmark"></i></button>
+            <button id="addButton" onclick="add()"><i class="fa-solid fa-plus"></i></button>
+            <button><i class="fa-solid fa-angles-down"></i></button>
+          </div>
+          <form id="form_add" class="add" action="/add-note" method="post" hidden="true">
+            <input type="hidden" name="id" value="<%= book.id %>" />
+            <input id="formAddInput" type="text" name="newNote" placeholder="New Note" autocomplete="off" autofocus="true" />
+            <button id="formAddButton" type="submit" name="list"><i class="fa-solid fa-plus"></i></button>
+          </form>
+          <% for(let note of notes){%>
+
+          <div class="notes">
+            <p id="title<%=note.id%>"><%= note.note %></p>
+
+            <form id="form_edit<%=note.id%>" class="add" action="/edit-note" method="post" hidden="true">
+              <input type="hidden" name="BookId" value="<%= note.book_id %>" />
+              <input type="hidden" name="id" value="<%= note.id %>" />
+              <input id="formEditInput<%=note.id%>" type="text" name="NoteTitle" autocomplete="off" autofocus="true" />
+              <button id="formEditCancelButton<%=note.id%>" onclick="cancel_edit('<%=note.id%>'); return false;">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <button id="formEditButton<%=note.id%>" type="submit">
+                <i class="fa-solid fa-check"></i>
+              </button>
+            </form>
+
+            <button id="editButton<%=note.id%>" class="edit" onclick="edit('<%=note.id%>', '<%= note.note %>')">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+          </div>
+
+          <% } %>
+        </div>
+      </div>
+    </main>
+    <!--MAIN END-->
+    <%- include('partials/footer.ejs'); -%>
+    <script>
+      function add() {
+        document.getElementById("form_add").removeAttribute("hidden");
+        document.getElementById("cancelButton").removeAttribute("hidden");
+      }
+      function cancel() {
+        document.getElementById("formAddInput").value = "";
+        document.getElementById("form_add").setAttribute("hidden", true);
+        document.getElementById("cancelButton").setAttribute("hidden", true);
+      }
+      function edit(id, note) {
+        document.getElementById("title" + id).setAttribute("hidden", true);
+        document.getElementById("editButton" + id).setAttribute("hidden", true);
+        document.getElementById("form_edit" + id).removeAttribute("hidden");
+        document.getElementById("formEditInput" + id).value = note;
+      }
+      function cancel_edit(id) {
+        event.preventDefault();
+        document.getElementById("form_edit" + id).setAttribute("hidden", true);
+        document.getElementById("title" + id).removeAttribute("hidden");
+        document.getElementById("editButton" + id).removeAttribute("hidden");
+      }
+    </script>
+  </body>
+</html>

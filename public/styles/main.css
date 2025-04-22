@@ -1,3 +1,12 @@
+:root {
+  --background-color: #af9476;
+  --primary-text-color: #532d02;
+  --link-color: #532d02;
+  --link-hover-color: bisque;
+  --button-hover-bg: #613e16;
+  --button-hover-text: #000;
+}
+
 /* BODY */
 
 * {
@@ -6,22 +15,40 @@
 }
 
 body {
-  background-color: #af9476;
+  background-color: var(--background-color);
   overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
-  color: #532d02;
 }
 
-a:visited {
-  color: inherit; /* Giữ nguyên màu như trước khi truy cập */
+a,
+a:visited,
+h1,
+h2,
+h3,
+button,
+select {
+  color: var(--link-color);
+}
+
+a,
+button,
+select {
+  cursor: pointer;
+  background-color: #fff0;
 }
 
 a:hover {
-  color: bisque;
+  color: var(--link-hover-color);
 }
+
+button:hover {
+  background-color: var(--button-hover-bg) !important;
+  color: var(--button-hover-text);
+}
+
 header {
   margin-bottom: 50px;
 }
@@ -49,7 +76,6 @@ main {
   display: flex;
   align-items: center;
   position: relative;
-  color: #532d02;
 }
 
 .header_container h1 {
@@ -68,10 +94,8 @@ main {
 }
 
 .category_book select {
-  background-color: #fff0;
   font-size: 1.5rem;
-  border: 2px #532d02 solid;
-  color: #532d02;
+  border: 2px var(--primary-text-color) solid;
   border-radius: 10px;
   padding: 5px;
   cursor: pointer;
@@ -79,7 +103,7 @@ main {
 }
 
 .category_book option {
-  background-color: #af9476;
+  background-color: bisque;
 }
 
 .category_book form {
@@ -89,10 +113,8 @@ main {
 }
 
 .category_book a {
-  background-color: #fff0;
   font-size: 1.5rem;
   border: none;
-  color: #532d02;
   cursor: pointer;
   text-align: center;
 }
@@ -129,14 +151,9 @@ main {
 
 .review_container h2 {
   font-size: 2rem;
-  color: #532d02;
 }
 .review_container a {
   text-decoration-line: underline;
-}
-
-.review_container a:hover {
-  color: bisque;
 }
 
 .review_container > p:nth-of-type(1) {
@@ -156,14 +173,6 @@ main {
 }
 .title h2 {
   flex: 1;
-}
-.title button {
-  flex-basis: 50px;
-  background-color: #ffffff00;
-  border: none;
-  color: #532d02;
-  cursor: pointer;
-  font-size: 2rem;
 }
 /* MODIFY */
 .modify_container {
@@ -225,8 +234,7 @@ main {
 }
 
 .modify_container button:hover {
-  width: 50%;
-  background-color: #77644f;
+  color: antiquewhite;
 }
 
 /* DETAILS */
@@ -266,7 +274,6 @@ main {
 
 .book h2 {
   font-size: 2rem;
-  color: #532d02;
 }
 
 .book p {
@@ -285,7 +292,6 @@ main {
 
 .my_notes h3 {
   font-size: 2rem;
-  color: #532d02;
 }
 
 .my_notes p {
@@ -307,16 +313,9 @@ main {
   width: 50px;
   height: 30px;
   font-size: 1.2rem;
-  color: #532d02;
   border: #532d02 1px solid;
   border-radius: 5px;
-  background-color: #ff00;
   cursor: pointer;
-}
-
-.add_note button:hover {
-  background-color: #613e16;
-  color: #000;
 }
 
 .add {
@@ -335,12 +334,34 @@ main {
   flex-basis: 50px;
   text-align: center;
   font-size: 1.2rem;
-  color: #532d02;
   border: #532d02 1px solid;
   border-radius: 5px;
 }
 
-.add button:hover {
-  background-color: #613e16;
-  color: #000;
+form.add[hidden] {
+  display: none !important;
+  margin: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+.notes {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.notes p {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.notes button {
+  flex-basis: 50px;
+  height: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  border: #532d02 1px solid;
+  border-radius: 5px;
 }

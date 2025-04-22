@@ -8,12 +8,12 @@
   </head>
   <body>
     <!--HEADER START-->
-    <header>
-      <div class="header_container">
-        <h1><a href="index.html">My Book Notes</a></h1>
-      </div>
-      <hr />
-    </header>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Book Notes By Gbao</title>
+      <link rel="stylesheet" href="../public/styles/main.css" />
+    </head>
     <!--HEADER END-->
     <!--MAIN START-->
     <main>
@@ -44,12 +44,26 @@
             <input id="formAddInput" type="text" name="newNote" placeholder="New Note" autocomplete="off" autofocus="true" hidden="true" />
             <button id="formAddButton" type="submit" name="list" hidden="true"><i class="fa-solid fa-plus"></i></button>
           </form>
-          <p>
-            Power is the capacity or ability to get things done.<br />
-            It determines whether you can or can’t influence your environment.<br />
-            It gives you a sense of mastery over your life.<br />
-            <br />
-          </p>
+          <div class="notes">
+            <p id="title"> fdsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </p>
+            <form class="add" action="/edit-note" method="post">
+              <input type="hidden" name="NoteId" value="4" />
+              <input
+                id="formEditInput"
+                type="text"
+                name="NoteTitle"
+                value="test1"
+                autocomplete="off"
+                autofocus="true"
+                hidden="true"
+              />
+              <button id="formEditButton" type="submit" hidden="true">
+                <i class="fa-solid fa-check"></i>
+              </button>
+            </form>
+            <button id="editButton" class="edit" onclick="handler()">
+              <i class="fa-solid fa-pen"></i>
+            </button></div>
         </div>
       </div>
     </main>
@@ -68,5 +82,11 @@
       document.getElementById("formAddButton").setAttribute("hidden", true);
       document.getElementById("cancelButton").setAttribute("hidden", true);
     }
+    function handler() {
+        document.getElementById("title").setAttribute("hidden", true);
+        document.getElementById("editButton").setAttribute("hidden", true);
+        document.getElementById("formEditInput").removeAttribute("hidden");
+        document.getElementById("formEditButton").removeAttribute("hidden");
+      }
   </script>
 </html>

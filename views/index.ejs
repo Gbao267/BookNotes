@@ -27,17 +27,14 @@
         <% for(let book of books) {%>
         <div class="book_review">
           <!--IMG-->
-          <a href="details.html"><img src="https://covers.openlibrary.org/b/id/<%= book.cover_i %>-L.jpg" alt="" /></a>
+          <a href="detail/<%= book.id %>"><img src="https://covers.openlibrary.org/b/id/<%= book.cover_i %>-L.jpg" alt="" /></a>
 
           <!--REVIEW CONTAINER-->
           <div class="review_container">
             <!--TITLE-->
             <div class="title">
-              <h2><a href="details.html"><%= book.name %></a></h2>
-              <form action="/edit" method="POST">
-                <input type="hidden" name="id" value="<%= book.id %>" />
-                <button type="submit"><i class="fa-solid fa-pen"></i></button>
-              </form>
+              <h2><a href="detail/<%= book.id %>"><%= book.name %></a></h2>
+              <a href="edit/<%= book.id %>"><i class="fa-solid fa-pen"></i></a>
             </div>
             <!--DATE AND RATING-->
             <p>Date read: <%= new Date(book.date_read).toLocaleDateString('vi-VN') %>. How strongly I recommend it: <%= book.rating %>/10</p>
