@@ -53,10 +53,10 @@ async function getBooksByColumn(column) {
     let result;
     switch (column) {
       case "rating":
-        result = await db.query("SELECT * FROM books ORDER BY rating ASC ");
+        result = await db.query("SELECT * FROM books ORDER BY rating DESC ");
         break;
       case "recently":
-        result = await db.query("SELECT * FROM books ORDER BY date_read ASC ");
+        result = await db.query("SELECT * FROM books ORDER BY date_read DESC ");
         break;
       case "name":
         result = await db.query("SELECT * FROM books ORDER BY name ASC ");
