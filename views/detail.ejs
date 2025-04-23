@@ -25,7 +25,11 @@
       <div class="details_container">
         <div class="intro">
           <div class="book">
+            <% if (book.cover_i) { %>
             <img src="https://covers.openlibrary.org/b/id/<%= book.cover_i %>-L.jpg" alt="" />
+            <% } else { %>
+            <img src="/img/img_not_found.jpg" alt="" />
+            <% } %>
             <h2><%= book.name %></h2>
             <p>Date read: <%= new Date(book.date_read).toLocaleDateString('vi-VN') %>.</p>
             <p>How strongly I recommend it: <%= book.rating %></p>

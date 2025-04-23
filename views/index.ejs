@@ -28,7 +28,11 @@
         <% for(let book of books) {%>
         <div class="book_review">
           <!--IMG-->
-          <a href="detail/<%= book.id %>"><img src="https://covers.openlibrary.org/b/id/<%= book.cover_i %>-L.jpg" alt="" /></a>
+          <% if (book.cover_i) { %>
+          <a href="detail/<%= book.id %>"> <img src="https://covers.openlibrary.org/b/id/<%= book.cover_i %>-L.jpg" alt="" /></a>
+          <% } else { %>
+          <a href="detail/<%= book.id %>"> <img src="/img/img_not_found.jpg" alt="" /></a>
+          <% } %>
 
           <!--REVIEW CONTAINER-->
           <div class="review_container">
